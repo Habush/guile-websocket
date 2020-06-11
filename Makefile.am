@@ -37,8 +37,8 @@ SUFFIXES = .scm .go
 .scm.go:
 	$(AM_V_GEN)$(top_builddir)/pre-inst-env $(GUILE_TOOLS) compile $(GUILE_WARNINGS) -o "$@" "$<"
 
-moddir=$(prefix)/share/guile/site/2.0
-godir=$(libdir)/guile/2.0/ccache
+moddir=$(prefix)/share/guile/site/$(GUILE_EFFECTIVE_VERSION)
+godir=$(prefix)/share/guile/$(GUILE_EFFECTIVE_VERSION)/site-ccache
 
 SOURCES =					\
   web/socket/base64.scm				\
