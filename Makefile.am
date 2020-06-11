@@ -45,7 +45,8 @@ SOURCES =					\
   web/socket/sha-1.scm				\
   web/socket/utils.scm				\
   web/socket/frame.scm				\
-  web/socket/server.scm
+  web/socket/server.scm       \
+  web/socket/client.scm
 
 TESTS =						\
   tests/frame.scm
