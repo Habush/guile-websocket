@@ -22,6 +22,7 @@
 AC_INIT(guile-websocket, 0.1)
 AC_CONFIG_SRCDIR([web])
 AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([color-tests -Wall -Wno-portability foreign])
 AM_SILENT_RULES([yes])
 
