@@ -178,13 +178,13 @@ resource described by URI-OR-STRING."
     (write-frame (make-close-frame (make-bytevector 0)) socket)
     ;; Per section 5.5.1 , wait for the server to close the connection
     ;; for a reasonable amount of time.
-    (let loop ()
-      (match (select #() (vector socket) #() 1) ; 1 second timeout
-        ((#() #(socket) #()) ; there is output to read
-         (unless (port-eof? socket)
-           (read-frame socket) ; throw it away
-           (loop)))))
-    (close-port socket)
+    ; (let loop ()
+    ;   (match (select #() (vector socket) #() 1) ; 1 second timeout
+    ;     ((#() #(socket) #()) ; there is output to read
+    ;      (unless (port-eof? socket)
+    ;        (read-frame socket) ; throw it away
+    ;        (loop)))))
+    (shutdown socket 2)
     (close-port (websocket-entropy-port ws))
     (set-websocket-state! ws 'closed)
     *unspecified*))
